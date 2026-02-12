@@ -1,0 +1,239 @@
+Claro 👌 Te preparo un **apunte claro y ordenado** sobre lo que estás trabajando: copias, desempaquetado (`*` y `**`), y paso de argumentos en Python.
+
+---
+
+# 📌 Apunte: Copias y Desempaquetado en Python
+
+## 1️⃣ Copia de listas
+
+### ❌ Copia incorrecta (referencia al mismo objeto)
+
+```python
+datos = [1,2,3,4,5]
+copia_datos = datos
+```
+
+Aquí **NO se crea una copia real**.
+Ambas variables apuntan al **mismo espacio en memoria**.
+
+Si modificas una:
+
+```python
+copia_datos.append(6)
+```
+
+También cambia la original.
+
+👉 Porque solo se copia la **referencia**, no el contenido.
+
+---
+
+### ✅ Copia correcta (copia superficial)
+
+#### ✔ Método 1: Desempaquetado
+
+```python
+copia_datos = [*datos]
+```
+
+#### ✔ Método 2: Método `.copy()`
+
+```python
+copia_datos = datos.copy()
+```
+
+#### ✔ Método 3: Slicing
+
+```python
+copia_datos = datos[:]
+```
+
+En estos casos:
+
+* Se crea un **nuevo objeto en memoria**
+* Modificar la copia **NO afecta** la lista original
+
+---
+
+## 2️⃣ Desempaquetado con `*` (listas y tuplas)
+
+El operador `*` permite:
+
+### 🔹 A) Copiar listas
+
+```python
+copia_datos = [*datos]
+```
+
+### 🔹 B) Imprimir elementos separados
+
+```python
+print(*datos)
+```
+
+En vez de imprimir:
+
+```
+[1, 2, 3, 4, 5]
+```
+
+Imprime:
+
+```
+1 2 3 4 5
+```
+
+Porque desempaqueta cada elemento individualmente.
+
+---
+
+## 3️⃣ `*args` → Recibir múltiples argumentos (Tuplas)
+
+```python
+def impresion_nombres(*nombres):
+    print(nombres)
+```
+
+Cuando llamas:
+
+```python
+impresion_nombres("diego","carlos","ana")
+```
+
+Internamente se convierte en:
+
+```python
+nombres = ("diego","carlos","ana")
+```
+
+📌 `*args`:
+
+* Recibe cantidad variable de argumentos
+* Se almacenan en una **tupla**
+
+Desempaquetado al imprimir:
+
+```python
+print(*nombres)
+```
+
+---
+
+## 4️⃣ `**kwargs` → Recibir argumentos tipo diccionario
+
+```python
+def impresion_datos(**data):
+    print(data)
+```
+
+Cuando llamas:
+
+```python
+impresion_datos(nombre="carlos", tel=123456)
+```
+
+Internamente se convierte en:
+
+```python
+data = {
+    "nombre": "carlos",
+    "tel": 123456
+}
+```
+
+📌 `**kwargs`:
+
+* Recibe cantidad variable de argumentos
+* Se almacenan en un **diccionario**
+
+---
+
+## 5️⃣ Desempaquetado con `**` en diccionarios
+
+Si tienes:
+
+```python
+diccionario_datos = {"marca":"DELL","modelo":"z7080"}
+```
+
+Puedes pasarlo a una función así:
+
+```python
+impresion_datos(**diccionario_datos)
+```
+
+Equivale a escribir:
+
+```python
+impresion_datos(marca="DELL", modelo="z7080")
+```
+
+---
+
+## 6️⃣ Copia de diccionarios
+
+### ❌ Incorrecto (referencia)
+
+```python
+copia_diccionario = diccionario_datos
+```
+
+### ✅ Correcto (copia superficial)
+
+```python
+copia_diccionario = {**diccionario_datos}
+```
+
+O también:
+
+```python
+copia_diccionario = diccionario_datos.copy()
+```
+
+---
+
+# 🧠 Conceptos Clave
+
+| Símbolo    | Uso                            | Tipo que genera        |
+| ---------- | ------------------------------ | ---------------------- |
+| `*`        | Desempaquetar lista/tupla      | Elementos individuales |
+| `*args`    | Recibir múltiples argumentos   | Tupla                  |
+| `**kwargs` | Recibir argumentos clave-valor | Diccionario            |
+| `{**dic}`  | Copiar diccionario             | Nuevo diccionario      |
+
+---
+
+# ⚠ Importante: Copia superficial vs profunda
+
+Lo que estás usando es **copia superficial**.
+
+Si la lista contiene otras listas:
+
+```python
+lista = [[1,2],[3,4]]
+copia = lista.copy()
+```
+
+Modificar una sublista afectará ambas.
+
+Para copia profunda:
+
+```python
+import copy
+copia = copy.deepcopy(lista)
+```
+
+---
+
+# 🎯 Resumen Final
+
+* `=` copia referencia
+* `*` desempaqueta listas o argumentos
+* `*args` → tupla
+* `**kwargs` → diccionario
+* `{**dic}` copia diccionarios
+* `.copy()` crea copia superficial
+
+---
+
+Si quieres, puedo prepararte una versión tipo **apunte para imprimir en PDF** más resumida o una versión tipo **guía para examen** 🚀
