@@ -59,32 +59,13 @@ def editar_pelicula(tablaPeliculas):
 if __name__ == "__main__":
     print("Mi Gestor de Base de Datos".center(50, "*"))
 
-    pelicula1 = Pelicula(
-        "Spiderman",
-        "Accion",
-        "Pelicula del hombre araña",
-        "Director 1",
-    )
-    pelicula2 = Pelicula(
-        "Por que el?",
-        "Comedia",
-        "Pelicula de comedia",
-        "Director 2",
-    )
-    pelicula3 = Pelicula(
-        "Atraves del Mar",
-        "Romance y Drama",
-        "Pelicula romántica",
-        "Director 3",
-    )
 
     tablaPeliculas = Tabla("Peliculas")
-    tablaPeliculas.insercion(pelicula1.info())
-    tablaPeliculas.insercion(pelicula2.info())
-    tablaPeliculas.insercion(pelicula3.info())
+
 
     while True:
         print("\nMenú Principal")
+        print("Por favor ingresa mediante numero la opcion deseada")
         print("1. Ver todas las películas")
         print("2. Agregar nueva película")
         print("3. Buscar películas")
