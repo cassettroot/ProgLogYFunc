@@ -57,7 +57,7 @@ def editar_pelicula(tablaPeliculas):
 
 
 if __name__ == "__main__":
-    print("Mi Gestor de Base de Datos".center(50, "*"))
+    print("=====Cineteca=====".center(60, "-"))
 
 
     tablaPeliculas = Tabla("Peliculas")
@@ -71,8 +71,9 @@ if __name__ == "__main__":
         print("3. Buscar películas")
         print("4. Editar película")
         print("5. Ver historial de cambios")
-        print("6. Salir")
-        opcion = input("Seleccione una opción (1-6): ")
+        print("6. Eliminar pelicula")
+        print("7. Salir")
+        opcion = input("Seleccione una opción (1-7): ")
 
         if opcion == "1":
             tablaPeliculas.mostrarTodos()
@@ -86,8 +87,8 @@ if __name__ == "__main__":
         elif opcion == "3":
             print("Opciones de búsqueda:")
             print("1. Títulos que empiecen con un texto")
-            print("2. Títulos que contengan un texto")
-            sub = input("Seleccione una opción (1-2): ")
+            
+            sub = input("Ingrese el numero, por favor , 1: ")
             texto = input("Ingrese el texto a buscar: ")
 
             if sub == "1":
@@ -100,8 +101,14 @@ if __name__ == "__main__":
             editar_pelicula(tablaPeliculas)
         elif opcion == "5":
             tablaPeliculas.mostrarHistorial()
-        elif opcion == "6":
+        elif opcion == "7":
             print("Saliendo...")
             break
+        elif opcion == "6":
+            try:
+                id_eliminar = int(input("Ingrese el id de la película a eliminar: "))
+                tablaPeliculas.eliminar(id_eliminar)
+            except ValueError:
+                print("Id inválido")
         else:
             print("Opción no válida")
