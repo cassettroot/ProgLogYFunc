@@ -24,6 +24,11 @@ tablaPeliculas.eliminar(3)
 
 tablaPeliculas.mostrarTodos()
 
+#opcion es una lista la cual remplaza a un switch y al if 
+#permite generar un listado de funciones mas practicos
+#el nombre de la key corresponde a una funcion apartir de la instacia de clase Tabla
+#no se colocan parentesis para evitar que se ejecuten solas al momento de la creacion
+
 opciones = {
     "selectAll": tablaPeliculas.mostrarTodos,
     "insert": tablaPeliculas.insercion,
@@ -31,15 +36,37 @@ opciones = {
     "delete": tablaPeliculas.eliminar,
 }
 
+
+#funcion de recibir datos : se encarga de recibir y procesar los datos en forma bruta
+#que ingresa el usuario por terminal
+#limpia y estructura la informacion
 def recibirDatos(datos):
+    #recibe una lista de datos
     objeto = {}
-    
+    #iteramos la informacion obtenida para estructurarla
+    #individual: variable auxiliar contendra el valor en cada posicion de la lista
+    #datos : es la lista que contiene la info
     for individual in datos:
+        #usamos una variable temporal para separar los datos en dos posiciones
+        #posicion0 : correcponde a la key
+        #posiccion1 : el valor 
+        #split permite dividir una cadena de texto apartir de un caracter
+        #devuelve una lista :ejemplo dt = ["titulo","spider-man"]
         dt = individual.split("=")
+        #utilizaremos un obejto vacio y añadimos los datos en el formato de un diccionario
+        #se concatena una lista vacia para convertirla en un string (str)
+        #la funcion strip, elimmin los espacions y fin de una cadena
+        #al escribir objeto[""+dt(0).strip()] creaos una nueva key de manera dinamica
+        #se asigna como valor la posicion 1 de la lista temporal
         objeto["" + dt[0].strip()] = dt[1]
+        #ejemplo de lo que pasa ["titulo"] = "spider-man"
+        #para diferenciar si los datos recibidos son para ... o ....
+        #para
     if "id" in objeto.keys()
+        #si la key "id" existe retornamos de manera pura el objeto creado
         return objeto
     else:
+        #
         pelicula = Pelicula(**objeto)
         return pelicula.info()
 
