@@ -45,6 +45,7 @@ class Tabla:
 
             if self.__datos[posicion]['id'] == id:
 
+                
                 self.__datos[posicion][campo] = valor
                 print("Registro actualizado!")
                 encontrado = True
