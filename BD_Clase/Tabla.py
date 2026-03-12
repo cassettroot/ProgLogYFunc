@@ -38,15 +38,22 @@ class Tabla:
         else:
             print(f"El campo {campo} no existe")
 
-    def editar(self, id, campo, valor):
+    def editar(self, datos):
         encontrado = False
+        data = {**datos}
+        
+        if not "id" in data.keys():
+            print("ID no proporcionados")
+            return False
 
         for posicion in range(len(self.__datos)):
 
             if self.__datos[posicion]['id'] == id:
-
+                for campoEdicion,valorNuevo in data.items():
+                    if campoEdicion == "id"
+                        continue
                 
-                self.__datos[posicion][campo] = valor
+                self.__datos[posicion][campoEdicion] = valorNuevo
                 print("Registro actualizado!")
                 encontrado = True
                 break

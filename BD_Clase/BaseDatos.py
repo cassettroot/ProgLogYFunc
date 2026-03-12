@@ -33,12 +33,15 @@ opciones = {
 
 def recibirDatos(datos):
     objeto = {}
-    edicion = False
+    
     for individual in datos:
         dt = individual.split("=")
         objeto["" + dt[0].strip()] = dt[1]
-    pelicula = Pelicula(**objeto)
-    return pelicula.info()
+    if "id" in objeto.keys()
+        return objeto
+    else:
+        pelicula = Pelicula(**objeto)
+        return pelicula.info()
 
 def menu():
     print("Sistema Gestor de Base de Datos".center(50, "-"))
