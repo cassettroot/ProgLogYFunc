@@ -33,6 +33,7 @@ opciones = {
 
 def recibirDatos(datos):
     objeto = {}
+    edicion = False
     for individual in datos:
         dt = individual.split("=")
         objeto["" + dt[0].strip()] = dt[1]
