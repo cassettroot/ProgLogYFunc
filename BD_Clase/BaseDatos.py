@@ -60,10 +60,11 @@ def recibirDatos(datos):
         #se asigna como valor la posicion 1 de la lista temporal
         objeto["" + dt[0].strip()] = dt[1]
         #ejemplo de lo que pasa ["titulo"] = "spider-man"
-        #para diferenciar si los datos recibidos son para ... o ....
-        #para
+        #para diferenciar si los datos recibidos son para editar o insertar hacemos una validacion
+        #se pregunta si la key "id" existe en la lista de keys del objeto creado anteriormente 
     if "id" in objeto.keys()
-        #si la key "id" existe retornamos de manera pura el objeto creado
+        #si la key "id" existe entonces lo que se pretende es hacer una actualizacion de datos, por ende retornaoms de manera pura el objeto
+        # creado anteriormente
         return objeto
     else:
         #
