@@ -67,8 +67,11 @@ def recibirDatos(datos):
         # creado anteriormente
         return objeto
     else:
-        #
+        #si el id no existe por defecto es una insercion lo que se pretende hacer
+        #creamos una instancia de la clase Pelicula e incialmente sus valores
         pelicula = Pelicula(**objeto)
+        #por ultimo retonamos lo que nos devuelve el metodo info, que no es mas que los datos procesados de manera adecuada
+        #para la insercion
         return pelicula.info()
 
 def menu():
